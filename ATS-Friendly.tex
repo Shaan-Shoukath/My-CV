@@ -1,7 +1,7 @@
-\documentclass[9.5pt, a4paper]{article}
+\documentclass[10.8pt, a4paper]{article}
 
 % ── Page geometry ──────────────────────────────────────────────────────────────
-\usepackage[left=1.2cm, right=1.2cm, top=1.1cm, bottom=1.1cm]{geometry}
+\usepackage[left=1.1cm, right=1.1cm, top=1.0cm, bottom=1.0cm]{geometry}
 
 % ── Typography ─────────────────────────────────────────────────────────────────
 \usepackage[T1]{fontenc}
@@ -32,22 +32,23 @@
 
 % ── Section header ─────────────────────────────────────────────────────────────
 \newcommand{\cvsection}[1]{%
-  \vspace{4pt}%
+  \vspace{7pt}%
   {\color{accent}\textbf{\MakeUppercase{#1}}}\\[-5pt]
   {\color{rulecol}\rule{\linewidth}{0.5pt}}%
-  \vspace{1pt}%
+  \vspace{2pt}%
 }
 
-% ── Experience entry: inline bullet, no extra list env ─────────────────────────
+% ── Experience entry ───────────────────────────────────────────────────────────
 \newcommand{\entry}[4]{%   {Title}{Org}{Date}{One-line bullet}
   \textbf{#1} \textbar\ \textit{#2}\hfill{\small\color{subtle}#3}\\
   {\small #4}%
 }
 
 % ── Project entry ──────────────────────────────────────────────────────────────
-\newcommand{\project}[3]{%  {Name}{Stack}{One-line bullet}
-  \textbf{#1} {\small\color{subtle}\textit{— #2}}\\
+\newcommand{\project}[5]{%  {Name}{Stack}{Bullet1}{Bullet2}{GitHubURL}
+  \textbf{#1} {\small\color{subtle}\textit{— #2}}\ifx&#5&\else\hfill{\small\href{#5}{\textcolor{accent}{GitHub}}}\fi\\
   {\small #3}%
+  \ifx&#4&\else\\ {\small #4}\fi%
 }
 
 \pagestyle{empty}
@@ -68,7 +69,14 @@
 
 % ── Summary ────────────────────────────────────────────────────────────────────
 \cvsection{Summary}
-{\small EEE student (CGPA: 8.04, CUSAT 2023--27) with hands-on experience in embedded systems, IoT, autonomous robotics, and full-stack web development. Skilled in Linux-based development, hardware--software co-design, and AI-driven systems.}
+{\small An adaptive and curious student with a passion for tinkering with ideas and building them into working prototypes. Driven by a genuine interest in researching emerging technologies and creating across domains — from autonomous robotics and embedded systems to full-stack web applications and AI-driven tools. Thrives at the intersection of hardware and software, technology-agnostic and comfortable picking up whatever tool best fits the problem, always looking for the next challenge worth solving.}
+
+% ── Education ──────────────────────────────────────────────────────────────────
+\cvsection{Education}
+\begin{tabularx}{\linewidth}{@{} X r @{}}
+  \small\textbf{B.Tech., Electrical and Electronics Engineering} & \small\textbf{CGPA: 8.04} \\
+  \small Cochin University of Science and Technology (CUSAT) & \small 2023 – 2027 \\
+\end{tabularx}
 
 % ── Technical Skills ───────────────────────────────────────────────────────────
 \cvsection{Technical Skills}
@@ -83,60 +91,61 @@
 % ── Experience ─────────────────────────────────────────────────────────────────
 \cvsection{Professional Experience}
 
-\entry{Tech Associate Head}{EESA, CUSAT}{Jul 2025 – Present}%
-      {Leading full-stack development with Next.js and Django; overseeing technical architecture and deployment.}
+\entry{Front-End Developer Intern}{Oxpel India Technologies}{May 2024}%
+      {Built responsive UIs with React and Tailwind CSS; integrated REST APIs and managed version control via Git.}
 
-\vspace{3pt}
+\vspace{4pt}
 \entry{Student Intern – MEP Systems}{Voltech Group}{May – Jun 2025}%
       {Studied HVAC, electrical distribution, and plumbing schematics; exposure to load estimation and safety standards.}
 
-\vspace{3pt}
-\entry{Tech Team Member}{SEDS CUSAT}{2025 – Present}%
-      {Contributing to MERN-stack projects and technical event infrastructure.}
-
-\vspace{3pt}
-\entry{Front-End Developer Intern}{Oxpel India Technologies}{May 2024}%
-      {Built responsive UIs with React and Tailwind CSS; integrated REST APIs and managed version control via Git.}
+\vspace{4pt}
+\entry{Community Mentor \& Inventory Manager}{TinkerSpace}{Jan 2026 – Present}%
+      {Mentoring student projects and hosting technical sessions; managing hardware inventory and equipment logistics for prototyping.}
 
 % ── Projects ───────────────────────────────────────────────────────────────────
 \cvsection{Selected Projects}
 
 \project{Multi-Drone Agricultural System (Arkairo)}{ROS2 · ArduPilot · MAVLink · Raspberry Pi 5 · Cube Orange+}%
-        {Autonomous dual-drone system with drone-to-drone MAVLink telemetry; KML path planning, PID visual servoing, and precision spray control validated in SITL.}
-        
-\vspace{3pt}
+        {Autonomous dual-drone system with drone-to-drone MAVLink telemetry, KML-based path planning, and precision spray control.}%
+        {Implemented PID visual servoing for crop-row tracking; full workflow validated in SITL simulation before field deployment.}%
+        {https://github.com/Shaan-Shoukath/ROS-Arkairo}
+
+\vspace{4pt}
 \project{Aarannu — Community Digital ID Platform}{React · Express · Supabase · PostgreSQL}%
-        {Full-stack ID management with QR verification, bulk PDF/ZIP generation, and RLS-secured storage.}
+        {Full-stack identity management with QR-code verification, bulk PDF/ZIP export, and row-level-security–enforced cloud storage.}%
+        {Handled end-to-end deployment including schema design, auth flows, and admin dashboard for community operators.}%
+        {https://github.com/Shaan-Shoukath/Aarannu}
 
-\vspace{3pt}
+\vspace{4pt}
 \project{FruiteForest — Gamified Productivity App}{Flutter · Dart}%
-        {Cross-platform focus timer with reward-based gamification and persistent progress tracking.}
+        {Cross-platform focus timer with reward-based gamification, streak tracking, and persistent progress storage across sessions.}%
+        {Implemented state management and animated UI transitions to deliver a polished mobile experience on both iOS and Android.}%
+        {https://github.com/Shaan-Shoukath/FruiteForest}
 
-\vspace{3pt}
+\vspace{4pt}
 \project{Tinkerbluds — Cultivated Land Validation}{GEE · Sentinel-1/2 · XGBoost · FastAPI · Supabase}%
-        {Fused NDVI, SAR, SRTM, and ESA WorldCover to classify farmland; ML-based PASS/REVIEW/FAIL pipeline with crop plausibility scoring via REST API.}
+        {Fused NDVI, SAR, SRTM, and ESA WorldCover features to classify farmland parcels with ML-based PASS/REVIEW/FAIL scoring.}%
+        {Built a REST API serving crop plausibility predictions; integrated geospatial pipeline end-to-end from satellite ingestion to dashboard.}%
+        {https://github.com/Shaan-Shoukath/Tinkerbluds}
 
-\vspace{3pt}
+\vspace{4pt}
 \project{Kaffe — AI Branding \& Content Studio}{FastAPI · React · Multi-Agent · GPT-4o · Gemini}%
-        {Multi-agent system converting product images into SEO blogs, captions, and social posts via parallel orchestrated workflows.}
-
-
-% ── Education & Certifications ─────────────────────────────────────────────────
-\cvsection{Education \& Certifications}
-\begin{tabularx}{\linewidth}{@{} X r @{}}
-  \small\textbf{B.Tech., Electrical and Electronics Engineering} & \small\textbf{CGPA: 8.04} \\
-  \small Cochin University of Science and Technology (CUSAT) & \small 2023 – 2027 \\[3pt]
-  \small\href{https://coursera.org/share/be953313c178bdf0ee8309b2a82b541a}{\textbf{Deep Learning Specialization}} — Coursera / DeepLearning.AI \small{\color{subtle}(Andrew Ng · Neural Networks, CNNs, Sequence Models, Optimization)} & \\
-\end{tabularx}
+        {Multi-agent system that converts product images into SEO-optimised blog posts, ad captions, and platform-specific social content.}%
+        {Designed parallel orchestration layer to run independent agent workflows concurrently, cutting generation latency by ~60\%.}%
+        {https://github.com/Shaan-Shoukath/Kaffe}
 
 % ── Community ──────────────────────────────────────────────────────────────────
-
 \cvsection{Community \& Volunteering}
-\textbf{Volunteer}, TinkerHub (May 2025–Present): delivered Flutter workshop to 100+ students; mentored projects and hosted technical sessions.}
+{\small\textbf{Tech Volunteer}, EESA CUSAT (Jul 2025–Present): contributed to the EESA CUSAT website; assisted with full-stack development using Next.js and Django.}
 
-\vspace{3pt}
+\vspace{4pt}
+{\small\textbf{Tech Team Member}, SEDS CUSAT (2025–Present): built the ID card generation backend using Node.js and MongoDB; contributing to MERN-stack projects and technical event infrastructure.}
 
-{\small\textbf{Inventory Manager}, TinkerSpace (Jan 2026–Present): hardware inventory and equipment logistics for prototyping.\quad
+\vspace{4pt}
+{\small\textbf{Volunteer}, TinkerHub (May 2025–Present): delivered Flutter workshop to 100+ students; mentored projects and hosted technical sessions.}
 
+% ── Certifications ─────────────────────────────────────────────────────────────
+\cvsection{Certifications}
+{\small\href{https://www.coursera.org/account/accomplishments/specialization/D2GSDEZHMNFZ}{\textbf{Deep Learning Specialization}} — Coursera / DeepLearning.AI \hfill {\color{subtle}Andrew Ng · Neural Networks, CNNs, Sequence Models, Optimization}}
 
 \end{document}
