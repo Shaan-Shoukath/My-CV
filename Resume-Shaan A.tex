@@ -45,8 +45,10 @@
 }
 
 % ── Project entry ──────────────────────────────────────────────────────────────
-\newcommand{\project}[5]{%  {Name}{Stack}{Bullet1}{Bullet2}{GitHubURL}
-  \textbf{#1} {\small\color{subtle}\textit{— #2}}\ifx&#5&\else\hfill{\small\href{#5}{\textcolor{accent}{GitHub}}}\fi\\
+\newcommand{\project}[6]{%  {Name}{Stack}{Bullet1}{Bullet2}{GitHubURL}{LiveURL}
+  \textbf{#1} {\small\color{subtle}\textit{— #2}}%
+  \ifx&#6&\else\hfill{\small\href{#6}{\textcolor{accent}{Live}}\ifx&#5&\else\ \textbar\ \href{#5}{\textcolor{accent}{GitHub}}\fi}\fi%
+  \ifx&#6&\ifx&#5&\else\hfill{\small\href{#5}{\textcolor{accent}{GitHub}}}\fi\fi\\
   {\small #3}%
   \ifx&#4&\else\\ {\small #4}\fi%
 }
@@ -62,6 +64,7 @@
   \small
   \href{mailto:shaanshoukath4522@gmail.com}{shaanshoukath4522@gmail.com}
   \;|\; (+91) 9061553544
+  \;|\; \href{https://shaans.works}{shaans.works}
   \;|\; \href{https://www.linkedin.com/in/shaan-shoukath-04a9b12b2/}{LinkedIn}
   \;|\; \href{https://github.com/Shaan-Shoukath}{GitHub}
   \;|\; Kochi, India
@@ -108,31 +111,31 @@
 \project{Multi-Drone Agricultural System (Arkairo)}{ROS2 · ArduPilot · MAVLink · Raspberry Pi 5 · Cube Orange+}%
         {Autonomous dual-drone system with drone-to-drone MAVLink telemetry, KML-based path planning, and precision spray control.}%
         {Implemented PID visual servoing for crop-row tracking; full workflow validated in SITL simulation before field deployment.}%
-        {https://github.com/Shaan-Shoukath/ROS-Arkairo}
+        {https://github.com/Shaan-Shoukath/ROS-Arkairo}{}
 
 \vspace{4pt}
 \project{Aarannu — Community Digital ID Platform}{React · Express · Supabase · PostgreSQL}%
         {Full-stack identity management with QR-code verification, bulk PDF/ZIP export, and row-level-security–enforced cloud storage.}%
         {Handled end-to-end deployment including schema design, auth flows, and admin dashboard for community operators.}%
-        {https://github.com/Shaan-Shoukath/Aarannu}
+        {https://github.com/Shaan-Shoukath/Aarannu}{https://aarannu.shaans.works}
 
 \vspace{4pt}
 \project{FruiteForest — Gamified Productivity App}{Flutter · Dart}%
         {Cross-platform focus timer with reward-based gamification, streak tracking, and persistent progress storage across sessions.}%
         {Implemented state management and animated UI transitions to deliver a polished mobile experience on both iOS and Android.}%
-        {https://github.com/Shaan-Shoukath/FruiteForest}
+        {https://github.com/Shaan-Shoukath/FruiteForest}{}
 
 \vspace{4pt}
 \project{Tinkerbluds — Cultivated Land Validation}{GEE · Sentinel-1/2 · XGBoost · FastAPI · Supabase}%
         {Fused NDVI, SAR, SRTM, and ESA WorldCover features to classify farmland parcels with ML-based PASS/REVIEW/FAIL scoring.}%
         {Built a REST API serving crop plausibility predictions; integrated geospatial pipeline end-to-end from satellite ingestion to dashboard.}%
-        {https://github.com/Shaan-Shoukath/Tinkerbluds}
+        {https://github.com/Shaan-Shoukath/Tinkerbluds}{}
 
 \vspace{4pt}
 \project{Kaffe — AI Branding \& Content Studio}{FastAPI · React · Multi-Agent · GPT-4o · Gemini}%
         {Multi-agent system that converts product images into SEO-optimised blog posts, ad captions, and platform-specific social content.}%
         {Designed parallel orchestration layer to run independent agent workflows concurrently, cutting generation latency by ~60\%.}%
-        {https://github.com/Shaan-Shoukath/Kaffe}
+        {https://github.com/Shaan-Shoukath/Kaffe}{}
 
 % ── Community ──────────────────────────────────────────────────────────────────
 \cvsection{Community \& Volunteering}
